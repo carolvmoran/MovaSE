@@ -7,6 +7,7 @@ import { Profile } from "../components/Profile";
 import { ChallengedBox } from "../components/ChallengedBox";
 
 import styles from '../styles/pages/Home.module.css';
+import { CountdownProvider } from "../contexts/CountdownContext";
 
 export default function Home() {
   return (
@@ -15,16 +16,18 @@ export default function Home() {
         <title>Início | Mova-Se</title>
       </Head>
       <ExperienceBar />
-      <section>
-        <div>
-          <Profile />
-          <CompletedChallanges />
-          <Countdown />
-        </div>
-        <div>
-          <ChallengedBox />
-        </div>
-      </section>
+      <CountdownProvider>
+        <section>
+          <div>
+            <Profile />
+            <CompletedChallanges />
+            <Countdown />
+          </div>
+          <div>
+            <ChallengedBox />
+          </div>
+        </section>
+      </CountdownProvider>
     </div>
   )
 }
